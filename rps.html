@@ -1,0 +1,151 @@
+
+<style>
+h3 {
+    position:fixed;
+    left:650px;
+    top: 100px;
+}
+
+.main {
+	width:1350px;
+}
+h4 {
+    position:fixed;
+    right:160px;
+    top: 80px;
+}
+#result {
+    position:fixed;
+    left:625px;
+    top: 150px;
+	color:red;
+}
+#vs {
+    position:fixed;
+    left:618px;
+    top: 110px;
+	color:#009;
+}
+	
+#scorebar {
+    position:fixed;
+    right:100px;
+    top: 10px;
+	
+}
+#myscore {
+	position:fixed;
+    right:100px;
+    top:30px;
+	font-size:30px;
+}
+#pvscom {
+	font-size:20px;
+}
+#pscore {
+	color:#090;
+	font-size:20px;
+	
+}
+#cscore {
+	color:#090;	
+	font-size:20px;
+	
+}
+body {
+    font-family: Roboto, Arial; 
+}
+
+
+
+.main img {
+    width: 190px;
+    margin: 5px;
+	margin-top: 140px;
+	   
+}
+
+</style>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<script>
+window.addEventListener("load",function(windowLoadE){
+
+  var cs=0,
+      ps=0;
+  
+
+  choice=["Rock" , "Paper" , "Scissors"]
+ 
+
+   
+    function def_userchoice(userchoice){
+      var computerchoice = choice[Math.floor(Math.random() * choice.length)];
+      var outcome = "";
+    if (userchoice == computerchoice) {
+        outcome="It's a Tie!";
+    } else if (userchoice == "Rock") {
+        if (computerchoice == "Scissors") {
+            outcome="You win!"; ps=ps+1;
+        } else {
+            outcome="You lose!"; cs=cs+1;
+        };
+    } else if (userchoice == "Paper") {
+        if (computerchoice == "Rock") {
+            outcome="You win!"; ps=ps+1;
+        } else {
+            outcome="You lose!"; cs=cs+1;
+        };
+    } else if (userchoice == "Scissors") {
+        if (computerchoice == "Paper") {
+            outcome="You win!"; ps=ps+1;
+        } else {
+            outcome="You lose!"; cs=cs+1;
+        };
+    };
+	  
+     
+	$("#pscore").text(ps);
+    $("#cscore").text(cs);
+	$("#vs").text(userchoice+" vs "+computerchoice);
+    $("#result").text(outcome);
+    };
+  
+  
+        $('#rock').click(function() {
+            def_userchoice("Rock");
+        });
+        $('#paper').click(function() {
+            def_userchoice("Paper");
+        });
+        $('#scissors').click(function() {
+            def_userchoice("Scissors");
+        });
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="main" align="center">
+    <h1 id="gameintro">Let's play rock paper scissors! </h1>
+    <h2 id="move">Choose your move</h2>
+  <h3 id="vs"></h3>
+  <h3 id="result"></h3>
+
+  <h1 id="scorebar">Score :<br ><span id="pvscom">PLAYER &nbsp;&nbsp;&nbsp; COMPUTER</span></br> </h1>
+  <p id="myscore"></p>
+<h4> <span id="pscore"></span>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp;<span id="cscore"></span></h4> 
+
+    <img src="http://img02.deviantart.net/c7ed/i/2012/320/0/1/tom_the_rock__or____diamond__by_axemgr-d4bs5ky.png" id="rock" class="image">
+    <img src="http://writeit.hol.es/wp-content/uploads/2016/08/PaperIcon.png" id="paper" class="image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Circle-icons-scissors.svg" id="scissors" class="image">
+</div></div>
+<body>
+</body>
+</html>
